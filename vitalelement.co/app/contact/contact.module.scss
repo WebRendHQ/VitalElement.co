@@ -1,0 +1,150 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #a8d8ea, #aa96da);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #7a9eb1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.contactSection {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contactInfo {
+  .infoCard {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(93, 138, 168, 0.08);
+    height: 100%;
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: #5d8aa8;
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: linear-gradient(to right, #a8d8ea, #aa96da);
+      }
+    }
+  }
+  
+  .infoItem {
+    margin-bottom: 1.5rem;
+    
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #5d8aa8;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      color: #7a9eb1;
+      line-height: 1.6;
+    }
+  }
+}
+
+.contactForm {
+  .form {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(93, 138, 168, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #5d8aa8;
+    }
+    
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid rgba(168, 216, 234, 0.4);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: #a8d8ea;
+        box-shadow: 0 0 0 2px rgba(168, 216, 234, 0.2);
+      }
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+  
+  .submitButton {
+    background: linear-gradient(to right, #a8d8ea, #aa96da);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(168, 216, 234, 0.3);
+    margin-top: 1rem;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(168, 216, 234, 0.4);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .contactSection {
+    grid-template-columns: 1fr;
+  }
+} 

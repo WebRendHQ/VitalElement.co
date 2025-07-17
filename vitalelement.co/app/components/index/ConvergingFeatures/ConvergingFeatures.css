@@ -1,0 +1,155 @@
+/* ConvergingFeatures.css */
+.converging-section {
+  position: relative;
+  height: 300vh; /* Two viewport heights for scrolling */
+  background-color: #00000000;
+  color: #fff;
+  z-index: 10;
+  
+}
+
+.scroll-container {
+  position: sticky; /* This keeps it within the section */
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.features-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.scroll-reveal-container{
+  max-width: 500px;
+}
+
+.feature-card {
+  position: absolute;
+  width: 240px;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform, opacity;
+  background: rgba(255, 255, 255, 0);
+}
+
+.feature-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.addon-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.addon-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.addon-type.free {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+}
+
+.addon-type.premium {
+  background: rgba(194, 36, 251, 0.2);
+  color: #f024fb;
+}
+
+.center-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 600px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  will-change: transform, opacity;
+}
+
+.center-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.card-content p {
+  color: #cbd5e1;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.story-title {
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+  .feature-card {
+    width: 200px;
+  }
+  
+  .center-card {
+    width: 90%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-card {
+    width: 180px;
+    padding: 1rem;
+  }
+
+  .feature-title {
+    font-size: 1rem;
+  }
+
+  .addon-type {
+    font-size: 0.75rem;
+  }
+}

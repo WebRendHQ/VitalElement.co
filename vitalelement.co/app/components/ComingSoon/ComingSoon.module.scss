@@ -1,0 +1,294 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* Use dynamic viewport height for better mobile experience */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Make sure it's above everything */
+  font-family: var(--font-geist-sans);
+  overflow: hidden; /* Prevent scrolling within the overlay */
+  touch-action: none; /* Prevent touch scrolling on mobile */
+}
+
+.gradientBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.85); /* Slightly more transparent to show colors better */
+    backdrop-filter: blur(100px);
+    z-index: 5;
+  }
+}
+
+.gradientLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75; /* Increased opacity from 0.5 to 0.75 */
+  mix-blend-mode: soft-light; /* Changed to soft-light for better color visibility */
+  transform-origin: center;
+  transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  
+  &:nth-child(1) {
+    background: radial-gradient(
+      circle at calc(var(--mouse-x, 0.5) * 100%) calc(var(--mouse-y, 0.5) * 100%),
+      rgba(255, 0, 68, 0.8) 0%, /* Stronger, more saturated red */
+      rgba(255, 255, 255, 0) 60%
+    );
+    transform: scale(1.7) translate(calc(var(--mouse-x, 0.5) * -15%), calc(var(--mouse-y, 0.5) * -15%));
+    animation: pulse 8s ease-in-out infinite alternate;
+  }
+  
+  &:nth-child(2) {
+    background: radial-gradient(
+      circle at calc((1 - var(--mouse-x, 0.5)) * 100%) calc(var(--mouse-y, 0.5) * 100%),
+      rgba(64, 93, 230, 0.8) 0%, /* More saturated blue */
+      rgba(255, 255, 255, 0) 60%
+    );
+    transform: scale(1.9) translate(calc(var(--mouse-x, 0.5) * 15%), calc(var(--mouse-y, 0.5) * -10%));
+    animation: pulse 10s ease-in-out infinite alternate-reverse;
+  }
+  
+  &:nth-child(3) {
+    background: radial-gradient(
+      circle at calc(var(--mouse-x, 0.5) * 100%) calc((1 - var(--mouse-y, 0.5)) * 100%),
+      rgba(0, 220, 130, 0.8) 0%, /* More saturated green */
+      rgba(255, 255, 255, 0) 60%
+    );
+    transform: scale(1.5) translate(calc(var(--mouse-x, 0.5) * -10%), calc(var(--mouse-y, 0.5) * 15%));
+    animation: pulse 12s ease-in-out infinite alternate;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(40px);
+  border-radius: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.08);
+  padding: 3rem 3.5rem;
+  max-width: 550px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  @media (max-width: 600px) {
+    padding: 2rem;
+  }
+}
+
+.logoContainer {
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #111;
+  margin: 0;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  background: linear-gradient(135deg, #333 0%, rgba(0, 0, 0, 0.7) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  @media (max-width: 600px) {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 2.5rem;
+  
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
+}
+
+.form {
+  width: 100%;
+}
+
+.inputGroup {
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin-bottom: 0.5rem;
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.input {
+  flex: 1;
+  height: 60px;
+  padding: 0 1.5rem;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease;
+  
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.35);
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  @media (min-width: 601px) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  @media (max-width: 600px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.button {
+  padding: 0 2rem;
+  height: 60px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #333;
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  @media (min-width: 601px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.error {
+  color: rgba(255, 59, 48, 0.9);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.successMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0 2rem;
+  
+  p {
+    margin-top: 1.5rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.1rem;
+  }
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #52cc65;
+  stroke-miterlimit: 10;
+  margin: 0 auto;
+}
+
+.checkmarkCircle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #52cc65;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmarkCheck {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+} 

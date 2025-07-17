@@ -1,0 +1,189 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #5d8aa8; /* Pastel blue */
+    font-size: 1.5rem;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-weight: 500;
+    color: #5d8aa8; /* Pastel blue */
+  }
+}
+
+.select, .input {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(168, 216, 234, 0.4); /* Pastel blue border */
+  background-color: rgba(249, 247, 247, 0.5); /* Light pastel background */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #a8d8ea; /* Pastel blue */
+    box-shadow: 0 0 0 2px rgba(168, 216, 234, 0.2); /* Pastel blue shadow */
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: rgba(249, 247, 247, 0.8);
+  }
+}
+
+.categoryDescription {
+  font-size: 0.9rem;
+  color: #7a9eb1; /* Pastel blue-gray */
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.checkingAvailability {
+  font-size: 0.9rem;
+  color: #7a9eb1; /* Pastel blue-gray */
+  margin-top: 0.5rem;
+  font-style: italic;
+  animation: pulse 1.5s infinite;
+}
+
+.noAvailability {
+  font-size: 0.9rem;
+  color: #7a9eb1; /* Pastel blue-gray */
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.durationContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.durationButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(168, 216, 234, 0.4); /* Pastel blue border */
+  background-color: rgba(249, 247, 247, 0.5); /* Light pastel background */
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background-color: rgba(168, 216, 234, 0.1); /* Pastel blue background */
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.durationValue {
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-width: 30px;
+  text-align: center;
+  color: #5d8aa8; /* Pastel blue */
+}
+
+.priceSummary {
+  background-color: rgba(249, 247, 247, 0.7); /* Light pastel background */
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(168, 216, 234, 0.2); /* Pastel blue border */
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #7a9eb1; /* Pastel blue-gray */
+}
+
+.priceTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(168, 216, 234, 0.2); /* Pastel blue border */
+  font-weight: bold;
+  color: #5d8aa8; /* Pastel blue */
+}
+
+.error {
+  background-color: rgba(252, 186, 211, 0.2); /* Pastel pink background */
+  color: #e77c8e; /* Pastel pink-red */
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border: 1px solid rgba(252, 186, 211, 0.4); /* Pastel pink border */
+}
+
+.submitButton {
+  background: linear-gradient(to right, #a8d8ea, #aa96da); /* Pastel blue to pastel purple */
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(168, 216, 234, 0.3); /* Pastel blue shadow */
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(168, 216, 234, 0.4); /* Pastel blue shadow */
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.loginPrompt {
+  text-align: center;
+  margin-top: 1rem;
+  color: #7a9eb1; /* Pastel blue-gray */
+}
+
+.loginLink {
+  color: #5d8aa8; /* Pastel blue */
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: #7a9eb1; /* Pastel blue-gray */
+} 

@@ -1,0 +1,44 @@
+:root {
+  --background: #f9f7f7;
+  --foreground: #333333;
+  --primary: #5d8aa8;
+  --primary-light: #a8d8ea;
+  --secondary: #aa96da;
+  --accent: #fcbad3;
+  --muted: #7a9eb1;
+  --border: rgba(168, 216, 234, 0.2);
+  --shadow: rgba(93, 138, 168, 0.15);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent any scrolling on the entire page */
+body.overflow-hidden {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
